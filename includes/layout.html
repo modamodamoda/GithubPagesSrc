@@ -4,7 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href='{% route "/css/bootstrap.min.css" %}' type='text/css' rel='stylesheet' />
         <link href='{% route "/style.css" %}' rel='stylesheet' />
-        <title>{{ headTitle }}</title>
+        <title>{{ headTitle( page.title ) }}</title>
     </head>
     <body>
         <div id='app' class='pb-5 container'>

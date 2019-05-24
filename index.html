@@ -29,13 +29,13 @@ title: Home
     <div class='accordion'>
         {% foreach menu.mini as menuItem, i %}
             <div id='{% menuItem.href %}' data-parent='#mini-nav' class='collapse {% if i == 0 %}show{% end %} row'>
-                {% for item of Object.values(pages).filter( page => page.config.category == menuItem.category ) %}
+                {% for item of where( pages, page => page.config.category == menuItem.category ).pages %}
                 {% if item.config.image %}<div class='col-12 col-md-4 mb-4 mb-lg-0'><img src='{% route item.config.image %}' class='img-fluid' /></div>{% end %}
                 <div class='col-12 col-md-6'>
                     <h3>{{ item.config.title }}</h3>
                     <span class='montserrat font-s red'>{{ item.config.subtitle }}</span>
                     <p class='mt-2'>{{ item.config.summary }}</p>
-                    {% if item.config.link %}<p class='text-right'><a href='{% item.config.link %}'><button class='bg-grey'>Visit Site</button></a></p>{% end %}
+                    {% if item.config.link %}<p class='text-right'><a href='{% item.config.link %}'><button>Visit Site</button></a></p>{% end %}
                 </div>
                 {% end %}
             </div>
