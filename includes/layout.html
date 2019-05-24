@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href='{% route "/css/bootstrap.min.css" %}' type='text/css' rel='stylesheet' />
+        <link href='{% route "/style.css" %}' rel='stylesheet' />
+        <title>{{ headTitle }}</title>
+    </head>
+    <body>
+        <div id='app' class='pb-5 container'>
+            <nav class='align-items-right'>
+                <ul class='list-inline mb-4 pb-4 text-right'>
+                    {% for item of menu.home %}
+                        <li class='list-inline-item mx-2 {% if item.href == href %}active{% end %}'><a href='{% route item.href %}'>{{ item.name }}</a></li>
+                    {% end %}
+                </ul>
+            </nav>
+            
+        {{ children }}    
+        </div>
+        <footer class='mt-5 py-5'>
+            <p class='text-center copyright'>Copyleft <span class='copyleft'>&copy;</span> Jack Penny</p>
+        </footer>
+        <!-- additional includes -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script src="{% route "/js/bootstrap.bundle.min.js" %}" type='text/javascript'></script>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    </body>
+</html>

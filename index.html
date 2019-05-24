@@ -1,0 +1,44 @@
+---
+parent: /includes/layout.html
+title: Home
+---
+<header class=''>
+    <h1>Hello, my name is Jack Penny</h1>
+</header>
+<section class='home-motto mb-4'>
+    <div class='row'>
+        <div class ='col-12 col-md-10'>
+            <p>I am an ecommerce, business intelligence and systems developer and designer hailing from the UK. Based in Asia, I create platforms for US and China-based businesses.</p>
+            <p>You can read more about myself <a href='{% route '/eresume.html' %}'>here</a>.</p>                    
+            <p><u>Specialties</u><br />Web design, node.js, C/C++, jazz guitar, composition</p>
+        </div>
+    </div>
+</section>
+<section class='mini-portfolio' id='mini-nav'>
+    <div class='row'>
+        <h2 class='col-12 mt-4'>My work</h2>
+        <div class='col-4'></div>
+        <div class='col-12 col-lg-6 mt-4 mb-4'>
+            <ul class='mini-nav list-inline'>
+                {% foreach menu.mini as item, i %}
+                    <li class='list-inline-item mr-4'><a href='#{% item.href %}' data-parent='#mini-nav' aria-controls='{% item.href %}' role='button' data-target='#{% item.href %}' aria-expanded='{% if i == 0 %}true{% else %}false{% end %}' data-toggle='collapse'>{% item.name %}</a></li>
+                {% endforeach %}
+            </ul>
+        </div>
+    </div>
+    <div class='accordion'>
+        {% foreach menu.mini as menuItem, i %}
+            <div id='{% menuItem.href %}' data-parent='#mini-nav' class='collapse {% if i == 0 %}show{% end %} row'>
+                {% for item of Object.values(pages).filter( page => page.config.category == menuItem.category ) %}
+                {% if item.config.image %}<div class='col-12 col-md-4 mb-4 mb-lg-0'><img src='{% route item.config.image %}' class='img-fluid' /></div>{% end %}
+                <div class='col-12 col-md-6'>
+                    <h3>{{ item.config.title }}</h3>
+                    <span class='montserrat font-s red'>{{ item.config.subtitle }}</span>
+                    <p class='mt-2'>{{ item.config.summary }}</p>
+                    {% if item.config.link %}<p class='text-right'><a href='{% item.config.link %}'><button class='bg-grey'>Visit Site</button></a></p>{% end %}
+                </div>
+                {% end %}
+            </div>
+        {% endforeach %}
+    </div>
+</section>

@@ -1,0 +1,17 @@
+menu:
+  home:
+    - { name: 'Home', href: '/index.html' }
+    - { name: 'Design', href: '/design/index.html' }
+    - { name: 'Systems', href: '/c/index.html' }
+    - { name: 'NodeJS', href: '/nodejs/index.html' }
+  mini:
+    - { name: 'Design', href: 'design', category: 'Design' }
+    - { name: 'Systems', href: 'systems', category: 'C' }
+    - { name: 'Node.JS', href: 'nodejs', category: 'NodeJS' }
+base: C:\Users\apigeonabroad\Documents\GitHub\modamodamoda.github.io
+urlBase: https://modamodamoda.github.io
+titleBase: Jack Penny - %title
+macros:
+  - attribute: 'category'
+    href: '/%value/index.html'
+    layout: '/includes/category.html'
