@@ -9,7 +9,7 @@ menu:
     - { name: 'Systems', href: 'systems', category: 'C' }
     - { name: 'Node.JS', href: 'nodejs', category: 'NodeJS' }
 base: C:\Users\apigeonabroad\Documents\GitHub\modamodamoda.github.io
-urlBase: https://modamodamoda.github.io
+urlBase: https://jackpenny.com
 titleBase: Jack Penny - %title
 macros:
   - attribute: 'category'

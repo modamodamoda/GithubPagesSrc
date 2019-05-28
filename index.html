@@ -2,7 +2,7 @@
 parent: /includes/layout.html
 title: Home
 ---
-<header class=''>
+<header class='home-header'>
     <h1>Hello, my name is Jack Penny</h1>
 </header>
 <section class='home-motto mb-4'>
@@ -40,5 +40,20 @@ title: Home
                 {% end %}
             </div>
         {% endforeach %}
+    </div>
+</section>
+<section class='mini-blog mt-4'>
+    <div class='row'>
+        <h2 class='col-12 mt-4'>Blog</h2>
+    </div>
+    <div class='row mt-4'>
+        {% for item of where( pages, page => page.config.category == 'Blog' ).pages %}
+        {% if item.config.image %}<div class='col-12 col-md-4 mb-4 mb-lg-0'><img src='{% route item.config.image %}' class='img-fluid' /></div>{% end %}
+        <div class='col-12 col-md-6'>
+            <a href='{% route item.href %}'></a><h3>{{ item.config.title }}</h3></a>
+            <p class='mt-2'>{{ item.config.summary }}</p>
+            <p class='text-right'><a href='{% route item.href %}'><button>Read more</button></a></p>
+        </div>
+        {% end %}
     </div>
 </section>
